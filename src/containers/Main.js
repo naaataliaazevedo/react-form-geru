@@ -13,8 +13,8 @@ class Main extends Component {
   render() {
     return(
       <section>
+        <Header />
         <ContainerMain>
-          <Header />
           asdasdasd
         </ContainerMain>
       </section>
