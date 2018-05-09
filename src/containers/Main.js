@@ -14,7 +14,9 @@ class Main extends Component {
     this.state = {
       data: [],
       checkboxValue: '',
-      orgaoEmissor: ''
+      orgaoEmissor: '',
+      rgNumber: '',
+      dataNumber: ''
     };
   }
 
@@ -34,7 +36,9 @@ class Main extends Component {
   handleChange = (event) => {
     console.log('event', event.target.value);
     this.setState({
-      orgaoEmissor: event.target.value,
+      //orgaoEmissor: event.target.value,
+      rgNumber: event.target.value,
+      dataNumber: event.target.value
     });
   }
 
@@ -47,8 +51,8 @@ class Main extends Component {
   }
 
   render() {
-    const { data, checkboxValue } = this.state;
-
+    const { data, checkboxValue, rgNumber, dataNumber } = this.state;
+    console.log('rgNumber', rgNumber, dataNumber);
     return(
       <section>
         <Header />
@@ -58,11 +62,22 @@ class Main extends Component {
 
             <ContainerForm>
               <div>
-                <Input label={'Número do rg'}/>
+                <Input
+                  label={'Número do rg'}
+                  id={"rg"}
+                  mask="99.999.999-9" 
+                  onChange={this.handleChange}
+                  className={rgNumber !== '' ? 'active' : ''}
+                />
               </div>
 
               <div>
-                <Input label={'Data de emissão'} />
+                <Input
+                  label={'Data de emissão'}
+                  id={"data"}
+                  mask="99/99/9999" 
+                  onChange={this.handleChange}
+                />
               </div>
 
               <div>
