@@ -2,7 +2,25 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const ContainerMenu = styled.div`
+export class Menu extends Component {
+  render() {
+    return (
+      <ContainerMenu>
+        <NavLink to="/item1">
+          COMO FUNCIONA
+        </NavLink>
+        <NavLink to="/item2">
+          PRIVACIDADE
+        </NavLink>
+        <NavLink to="/item3">
+          AJUDA
+        </NavLink>
+      </ContainerMenu>
+    );
+  }
+}
+
+const ContainerMenu = styled.div `
   width: 90%;
   margin: 0 auto;
   > a {
@@ -32,23 +50,5 @@ const ContainerMenu = styled.div`
     }
   }
 `;
-
-export class Menu extends Component {
-  render() {
-    return (
-      <ContainerMenu>
-        <NavLink to="/item1">
-          COMO FUNCIONA
-        </NavLink>
-        <NavLink to="/item2">
-          PRIVACIDADE
-        </NavLink>
-        <NavLink to="/item3">
-          AJUDA
-        </NavLink>
-      </ContainerMenu>
-    );
-  }
-}
 
 export default Menu;

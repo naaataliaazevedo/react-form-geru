@@ -39,20 +39,19 @@ class Main extends Component {
 
             <ContainerForm>
               <div>
-                <Input />
+                <Input label={'Número do rg'}/>
               </div>
 
               <div>
-                <Input />
+                <Input label={'Data de emissão'} />
               </div>
 
               <div>
-                <Select data={data} />
+                <Select label={'Orgão expeditor'} data={data} />
               </div>
             </ContainerForm>
 
 
-            asdasdasd
           </ContainerHome>
         </ContainerMain>
       </section>

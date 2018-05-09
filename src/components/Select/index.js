@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
+import Label from '../Label';
 export class Select extends Component {
   render() {
-    const { data } = this.props;
-    console.log('data no select', data);
+    const { data, label } = this.props;
+
     return (
-      <SelectOption>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-      </SelectOption>
+      <div>
+        <Label>{label}</Label>
+        <SelectOption>
+          {data.map((options) => {
+            return (
+              <option key={options.value} value={options.value}>{options.label}</option>
+            )
+          })}
+        </SelectOption>
+      </div>
     );
   }
 }
@@ -19,6 +23,9 @@ export class Select extends Component {
 const SelectOption = styled.select`
   width: 100%;
   float: left;
+  background-color: #fff;
+  border: 2px solid #000;
+  height: 1.5rem;
 `;
 
 export default Select;
