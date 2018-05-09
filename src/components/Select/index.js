@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import Label from '../Label';
 export class Select extends Component {
   render() {
-    const { data, label } = this.props;
+    const { data, label, onChange } = this.props;
 
     return (
       <div>
         <Label>{label}</Label>
-        <SelectOption>
+        <SelectOption onChange={onChange}>
           {data.map((options) => {
             return (
               <option key={options.value} value={options.value}>{options.label}</option>

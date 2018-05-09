@@ -6,12 +6,15 @@ import Title from '../components/Title';
 import Header from '../components/Header';
 import Input from '../components/Input';
 import Select from '../components/Select';
+import Checkbox from '../components/Checkbox';
 
 class Main extends Component {
   constructor() {
     super();
     this.state = {
       data: [],
+      checkboxValue: '',
+      orgaoEmissor: ''
     };
   }
 
@@ -28,8 +31,23 @@ class Main extends Component {
       });
   }
 
+  handleChange = (event) => {
+    console.log('event', event.target.value);
+    this.setState({
+      orgaoEmissor: event.target.value,
+    });
+  }
+
+  onClick = (event) => {
+    event.preventDefault();
+    const el = event.target.value;
+    this.setState({
+      checkboxValue: el,
+    });
+  }
+
   render() {
-    const { data } = this.state;
+    const { data, checkboxValue } = this.state;
 
     return(
       <section>
@@ -48,12 +66,31 @@ class Main extends Component {
               </div>
 
               <div>
-                <Select label={'Orgão expeditor'} data={data} />
+                <Select
+                  label={'Orgão expeditor'}
+                  onChange={this.handleChange}
+                  data={data}
+                />
               </div>
             </ContainerForm>
 
             <div>
-              select
+              <label>aaa</label>
+              <div>
+                <Checkbox 
+                  value={'Feminino'}
+                  onClick={event => this.onClick(event)} 
+                  checked={checkboxValue}
+                  className={checkboxValue === 'Feminino' ? 'active' : 'inative'} 
+                />
+                <Checkbox 
+                  value={'Masculino'}
+                  checked={checkboxValue}
+                  onClick={event => this.onClick(event)}
+                  className={checkboxValue === 'Masculino' ? 'active' : 'inative'} 
+                />
+              </div>
+
             </div>
 
           </ContainerHome>
