@@ -60,13 +60,13 @@ class Main extends Component {
 }
 
 const ContainerMain = styled.div`
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
+  float: left;
 `;
 
 const ContainerHome = styled.div`
-  width: 100%;
-  float: left;
+  width: 60%;
+  margin: 0 auto;
 `;
 
 const ContainerForm = styled.div`
