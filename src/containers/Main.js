@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import Title from '../components/Title';
 import Header from '../components/Header';
 import Input from '../components/Input';
 import Select from '../components/Select';
@@ -35,7 +36,7 @@ class Main extends Component {
         <Header />
         <ContainerMain>
           <ContainerHome>
-            <h1>Dados Pessoais</h1>
+            <Title>{'Dados Pessoais'}</Title>
 
             <ContainerForm>
               <div>
@@ -51,6 +52,9 @@ class Main extends Component {
               </div>
             </ContainerForm>
 
+            <div>
+              select
+            </div>
 
           </ContainerHome>
         </ContainerMain>
