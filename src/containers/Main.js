@@ -7,7 +7,29 @@ import Input from '../components/Input';
 import Select from '../components/Select';
 
 class Main extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('/orgao_emissor.json')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          data: data.orgao_emissor,
+        });
+      })
+      .catch((error) => {
+        return error
+      });
+  }
+
   render() {
+    const { data } = this.state;
+
     return(
       <section>
         <Header />
@@ -25,7 +47,7 @@ class Main extends Component {
               </div>
 
               <div>
-                <Select />
+                <Select data={data} />
               </div>
             </ContainerForm>
 

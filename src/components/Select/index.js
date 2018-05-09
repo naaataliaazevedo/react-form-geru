@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 export class Select extends Component {
   render() {
+    const { data } = this.props;
+    console.log('data no select', data);
     return (
       <SelectOption>
         <option value="volvo">Volvo</option>
