@@ -34,25 +34,31 @@ class Main extends Component {
   }
 
   handleChange = (event) => {
-    console.log('event', event.target.value);
+    const value = event.target.value;
+    const name = event.target.name;
+    console.log('name', name);
+    console.log('value', value);
+
     this.setState({
-      //orgaoEmissor: event.target.value,
-      rgNumber: event.target.value,
-      dataNumber: event.target.value
+      [name]: value
     });
   }
 
   onClick = (event) => {
-    event.preventDefault();
     const el = event.target.value;
+    event.preventDefault();
+
     this.setState({
       checkboxValue: el,
     });
   }
 
   render() {
-    const { data, checkboxValue, rgNumber, dataNumber } = this.state;
-    console.log('rgNumber', rgNumber, dataNumber);
+    const { data, checkboxValue, rgNumber, dataNumber, orgaoEmissor } = this.state;
+    console.log('rgNumber', rgNumber);
+    console.log(' dataNumber', dataNumber);
+    console.log('orgaoEmissor', orgaoEmissor);
+    console.log('checkboxValue', checkboxValue);
     return(
       <section>
         <Header />
@@ -64,7 +70,8 @@ class Main extends Component {
               <div>
                 <Input
                   label={'Número do rg'}
-                  id={"rg"}
+                  name={'rgNumber'}
+                  value={rgNumber}
                   mask="99.999.999-9" 
                   onChange={this.handleChange}
                   className={rgNumber !== '' ? 'active' : ''}
@@ -74,7 +81,8 @@ class Main extends Component {
               <div>
                 <Input
                   label={'Data de emissão'}
-                  id={"data"}
+                  name={'dataNumber'}
+                  value={dataNumber}
                   mask="99/99/9999" 
                   onChange={this.handleChange}
                 />
@@ -82,6 +90,7 @@ class Main extends Component {
 
               <div>
                 <Select
+                  name={'orgaoEmissor'}
                   label={'Orgão expeditor'}
                   onChange={this.handleChange}
                   data={data}
@@ -125,7 +134,7 @@ const ContainerHome = styled.div`
   margin: 0 auto;
 `;
 
-const ContainerForm = styled.div`
+const ContainerForm = styled.form`
   width: 100%;
   float: left;
   > div {

@@ -16,14 +16,14 @@ export class Input extends Component {
   }
 
   render() {
-    const { label, onChange, mask, id, value, className } = this.props;
+    const { label, onChange, mask, value, className, name } = this.props;
     console.log('value', value);
     return (
       <div>
         <Label>{label}</Label>
         <InputText 
           type="text"
-          id={id}
+          name={name}
           value={value}
           onChange={onChange}
           mask={mask}
