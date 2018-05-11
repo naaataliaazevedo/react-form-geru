@@ -13,7 +13,7 @@ class Main extends Component {
     super();
     this.state = {
       data: [],
-      checkboxValue: '',
+      gender: '',
       orgaoEmissor: '',
       rgNumber: '',
       dataNumber: ''
@@ -36,8 +36,6 @@ class Main extends Component {
   handleChange = (event) => {
     const value = event.target.value;
     const name = event.target.name;
-    console.log('name', name);
-    console.log('value', value);
 
     this.setState({
       [name]: value
@@ -49,16 +47,32 @@ class Main extends Component {
     event.preventDefault();
 
     this.setState({
-      checkboxValue: el,
+      gender: el,
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const  {gender: gender, rgNumber: rgNumber, dataNumber: dataNumber, orgaoEmissor: orgaoEmissor} = this.state;
+    console.log('dados', gender, rgNumber, dataNumber, orgaoEmissor);
+
+    fetch('http://5af36ad6cca5e20014bba4cd.mockapi.io/api/form/form/', {
+      method: 'post',
+      body: JSON.stringify({ gender: gender, rgNumber: rgNumber, dataNumber: dataNumber, orgaoEmissor: orgaoEmissor })
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      //Success code goes here
+      alert('form submited')
+    }).catch(function (err) {
+      //Failure
+      alert('Error')
     });
   }
 
   render() {
-    const { data, checkboxValue, rgNumber, dataNumber, orgaoEmissor } = this.state;
-    console.log('rgNumber', rgNumber);
-    console.log(' dataNumber', dataNumber);
-    console.log('orgaoEmissor', orgaoEmissor);
-    console.log('checkboxValue', checkboxValue);
+    const { data, gender, rgNumber, dataNumber, orgaoEmissor } = this.state;
+
     return(
       <section>
         <Header />
@@ -66,37 +80,38 @@ class Main extends Component {
           <ContainerHome>
             <Title>{'Dados Pessoais'}</Title>
 
-            <ContainerForm>
-              <div>
-                <Input
-                  label={'Número do rg'}
-                  name={'rgNumber'}
-                  value={rgNumber}
-                  mask="99.999.999-9" 
-                  onChange={this.handleChange}
-                  className={rgNumber !== '' ? 'active' : ''}
-                />
-              </div>
+            <form onSubmit={this.handleSubmit.bind(this)}>
+              <ContainerForm>
+                <div>
+                  <Input
+                    label={'Número do rg'}
+                    name={'rgNumber'}
+                    value={rgNumber}
+                    mask="99.999.999-9" 
+                    onChange={this.handleChange}
+                    className={rgNumber !== '' ? 'active' : ''}
+                  />
+                </div>
 
-              <div>
-                <Input
-                  label={'Data de emissão'}
-                  name={'dataNumber'}
-                  value={dataNumber}
-                  mask="99/99/9999" 
-                  onChange={this.handleChange}
-                />
-              </div>
+                <div>
+                  <Input
+                    label={'Data de emissão'}
+                    name={'dataNumber'}
+                    value={dataNumber}
+                    mask="99/99/9999" 
+                    onChange={this.handleChange}
+                  />
+                </div>
 
-              <div>
-                <Select
-                  name={'orgaoEmissor'}
-                  label={'Orgão expeditor'}
-                  onChange={this.handleChange}
-                  data={data}
-                />
-              </div>
-            </ContainerForm>
+                <div>
+                  <Select
+                    name={'orgaoEmissor'}
+                    label={'Orgão expeditor'}
+                    onChange={this.handleChange}
+                    data={data}
+                  />
+                </div>
+              </ContainerForm>
 
             <div>
               <label>aaa</label>
@@ -104,18 +119,20 @@ class Main extends Component {
                 <Checkbox 
                   value={'Feminino'}
                   onClick={event => this.onClick(event)} 
-                  checked={checkboxValue}
-                  className={checkboxValue === 'Feminino' ? 'active' : 'inative'} 
+                  checked={gender}
+                  className={gender === 'Feminino' ? 'active' : 'inative'} 
                 />
                 <Checkbox 
                   value={'Masculino'}
-                  checked={checkboxValue}
+                  checked={gender}
                   onClick={event => this.onClick(event)}
-                  className={checkboxValue === 'Masculino' ? 'active' : 'inative'} 
+                  className={gender === 'Masculino' ? 'active' : 'inative'} 
                 />
               </div>
-
             </div>
+
+            <button type="submit">Continuar</button>
+          </form>
 
           </ContainerHome>
         </ContainerMain>
@@ -134,7 +151,7 @@ const ContainerHome = styled.div`
   margin: 0 auto;
 `;
 
-const ContainerForm = styled.form`
+const ContainerForm = styled.div`
   width: 100%;
   float: left;
   > div {
