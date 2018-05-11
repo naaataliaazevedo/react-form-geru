@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Inputmask from 'inputmask';
+import MaskedInput from 'react-maskedinput'
 import styled from 'styled-components';
 //https://github.com/insin/react-maskedinput Input
 //https://yarnpkg.com/en/package/calidation#readme
@@ -9,17 +10,17 @@ export class Input extends Component {
   
   componentDidMount() {
     const { mask } = this.props;
-    console.log('maaask', mask);
-    console.log('inputmask', Inputmask(mask));
-    //Inputmask(mask).mask(this._input)
-    Inputmask(mask);
+    //console.log('inputmask', Inputmask(mask));
+    //Inputmask({"mask": mask}).mask(this._input)
+    // Inputmask(mask);
   }
 
   render() {
     const { label, onChange, mask, value, className, name } = this.props;
-    console.log('value', value);
+    console.log('className', className);
+    console.log('mask', mask);
     return (
-      <div>
+      <div className={className}>
         <Label>{label}</Label>
         <InputText 
           type="text"
@@ -27,9 +28,9 @@ export class Input extends Component {
           value={value}
           onChange={onChange}
           mask={mask}
-          //ref={(c) => (this._input = c)}
-          className={className}
+          // ref={(c) => (this._input = c)}
         />
+
       </div>
     );
   }
@@ -41,6 +42,9 @@ const InputText = styled.input`
   height: 1.2rem;
   border: 0.1rem solid #000;
   background-color: #fff;
+  &:focus {
+    bordeR: 0.1rem solid #00d0d7;
+  }
 `;
 
 export default Input;

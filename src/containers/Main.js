@@ -16,7 +16,8 @@ class Main extends Component {
       gender: '',
       orgaoEmissor: '',
       rgNumber: '',
-      dataNumber: ''
+      dataNumber: '',
+      isFocus: '',
     };
   }
 
@@ -72,7 +73,8 @@ class Main extends Component {
 
   render() {
     const { data, gender, rgNumber, dataNumber, orgaoEmissor } = this.state;
-
+    const enabled = gender !== '' && rgNumber !== '' && dataNumber !== '' && orgaoEmissor !== '';
+    console.log('rgNumber', rgNumber.length);
     return(
       <section>
         <Header />
@@ -89,7 +91,7 @@ class Main extends Component {
                     value={rgNumber}
                     mask="99.999.999-9" 
                     onChange={this.handleChange}
-                    className={rgNumber !== '' ? 'active' : ''}
+                    className={rgNumber.length < 9 ? 'inative' : 'active'}
                   />
                 </div>
 
@@ -100,6 +102,7 @@ class Main extends Component {
                     value={dataNumber}
                     mask="99/99/9999" 
                     onChange={this.handleChange}
+                    className={dataNumber.length < 8 ? 'inative' : 'active'}
                   />
                 </div>
 
@@ -131,7 +134,7 @@ class Main extends Component {
               </div>
             </div>
 
-            <button type="submit">Continuar</button>
+            <button type="submit" disabled={!enabled}>Continuar</button>
           </form>
 
           </ContainerHome>
