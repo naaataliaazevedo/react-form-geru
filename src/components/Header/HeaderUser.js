@@ -5,7 +5,9 @@ export class HeaderUser extends Component {
   render() {
     return (
       <ContainerHeaderUser>
-        Header user
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
       </ContainerHeaderUser>
     );
   }
@@ -15,7 +17,7 @@ const ContainerHeaderUser = styled.div`
   width: 100%;
   float: left;
   background-color: #363435;
-  color: #fff;
+  color: #eceedf;
   padding: 1rem 0;
 `;
 

@@ -24,7 +24,7 @@ const ContainerMenu = styled.div `
   width: 90%;
   margin: 0 auto;
   > a {
-    color: #fff;
+    color: #eceedf;
     text-decoration: none;
     font-size: 0.8rem;
     position: relative;
