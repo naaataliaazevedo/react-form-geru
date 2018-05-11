@@ -3,18 +3,22 @@ import styled from 'styled-components';
 
 import Menu from './Menu';
 import Logo from './Logo';
+import HeaderUser from './HeaderUser';
 
 export class Header extends Component {
   render() {
     return (
       <ContainerHeader>
-        <BoxHeader>
-          <Logo />
-        </BoxHeader>
-        <BoxHeader>
-          <Menu />
-        </BoxHeader>
-      </ContainerHeader>
+        <div className="main-menu-logo">
+          <BoxHeader>
+            <Logo />
+          </BoxHeader>
+          <BoxHeader>
+            <Menu />
+          </BoxHeader>
+        </div>
+        <HeaderUser />
+      </ContainerHeader>  
     );
   }
 }
@@ -22,8 +26,12 @@ export class Header extends Component {
 const ContainerHeader = styled.header`
   width: 100%;
   float: left;
-  background-color: #000;
-  padding: 1rem 0;
+  > .main-menu-logo {
+    width: 100%;
+    float: left;
+    padding: 1rem 0;
+    background-color: #000;
+  }
 `;
 
 const BoxHeader = styled.div `
