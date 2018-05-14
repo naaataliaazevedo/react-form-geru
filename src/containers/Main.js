@@ -90,7 +90,7 @@ class Main extends Component {
                     label={'Número do rg'}
                     name={'rgNumber'}
                     value={rgNumber}
-                    mask="99.999.999-9" 
+                    mask="11.111.111-1" 
                     onChange={this.handleChange}
                     className={rgNumber.length < 9 ? 'inative' : 'active'}
                   />
@@ -101,7 +101,7 @@ class Main extends Component {
                     label={'Data de emissão'}
                     name={'dataNumber'}
                     value={dataNumber}
-                    mask="99/99/9999" 
+                    mask="11/11/1111" 
                     onChange={this.handleChange}
                     className={dataNumber.length < 8 ? 'inative' : 'active'}
                   />
