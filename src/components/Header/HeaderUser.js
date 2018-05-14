@@ -35,7 +35,7 @@ const ContainerHeaderUser = styled.div`
   background-color: #363435;
   color: #eceedf;
   padding: 1rem 0;
-`;
+  `;
 
 const MainUser = styled.div`
   width: 80%;
@@ -43,6 +43,9 @@ const MainUser = styled.div`
   > div {
     float: left;
     width: calc(100% / 4);
+    @media (max-width: 1023px) {
+      width: 100%;
+    }
     p {
       margin: 0;
       color: #fff;

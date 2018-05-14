@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Title from '../components/Title';
@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import Input from '../components/Input';
 import Select from '../components/Select';
 import Checkbox from '../components/Checkbox';
+import Button from '../components/Button';
 
 class Main extends Component {
   constructor() {
@@ -54,7 +55,7 @@ class Main extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const  {gender: gender, rgNumber: rgNumber, dataNumber: dataNumber, orgaoEmissor: orgaoEmissor} = this.state;
+    const  { gender, rgNumber, dataNumber, orgaoEmissor } = this.state;
     console.log('dados', gender, rgNumber, dataNumber, orgaoEmissor);
 
     fetch('http://5af36ad6cca5e20014bba4cd.mockapi.io/api/form/form/', {
@@ -83,7 +84,7 @@ class Main extends Component {
             <Title>{'Dados Pessoais'}</Title>
 
             <form onSubmit={this.handleSubmit.bind(this)}>
-              <ContainerForm>
+              <ContainerInputs>
                 <div>
                   <Input
                     label={'Número do rg'}
@@ -114,11 +115,11 @@ class Main extends Component {
                     data={data}
                   />
                 </div>
-              </ContainerForm>
+              </ContainerInputs>
 
-            <div>
-              <label>aaa</label>
+            <ContainerCheckbox>
               <div>
+                <label className="labelFirst">Sexo</label>
                 <Checkbox 
                   value={'Feminino'}
                   onClick={event => this.onClick(event)} 
@@ -132,9 +133,10 @@ class Main extends Component {
                   className={gender === 'Masculino' ? 'active' : 'inative'} 
                 />
               </div>
-            </div>
+            </ContainerCheckbox>
 
-            <button type="submit" disabled={!enabled}>Continuar</button>
+            {/*<button type="submit" disabled={!enabled}>Continuar</button>*/}
+            <Button disabled={!enabled}>{'Continuar'}</Button>
           </form>
 
           </ContainerHome>
@@ -154,7 +156,7 @@ const ContainerHome = styled.div`
   margin: 0 auto;
 `;
 
-const ContainerForm = styled.div`
+const ContainerInputs = styled.div`
   width: 100%;
   float: left;
   > div {
@@ -166,6 +168,23 @@ const ContainerForm = styled.div`
     }
     &:last-of-type {
       padding-right: 0;
+    }
+  }
+`;
+
+const ContainerCheckbox = styled.div`
+  width: 64%;
+  margin: 0 auto;
+  > div {
+    width: 100%;
+    float: left;
+    .labelFirst {
+      width: auto;
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 12px;
+      padding: 0.6rem 0;
     }
   }
 `;

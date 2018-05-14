@@ -23,7 +23,7 @@ export class Select extends Component {
 const SelectOption = styled.select`
   width: 100%;
   float: left;
-  background-color: #fff;
+  background-color: #fefff0;
   border: 2px solid #000;
   height: 1.5rem;
 `;

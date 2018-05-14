@@ -41,9 +41,9 @@ const InputText = styled.input`
   float:left;
   height: 1.2rem;
   border: 0.1rem solid #000;
-  background-color: #fff;
+  background-color: #fefff0;
   &:focus {
-    bordeR: 0.1rem solid #00d0d7;
+    border: 0.1rem solid #00d0d7;
   }
 `;
 

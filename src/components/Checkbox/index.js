@@ -39,10 +39,7 @@ const ContainerCheckbox = styled.div `
   }
   &:hover {
     margin: 4px;
-    border: 2px solid blue;
-    // overflow: auto;
     float: left;
-    color: blue;
   }
   label {
     float: left;
@@ -55,7 +52,7 @@ const ContainerCheckbox = styled.div `
     text-transform: uppercase;
     font-weight: bold;
     font-size: 12px;
-    background-color: #fff;
+    background-color: #fefff0;
   }
   .active {
     background-color: #1b7d8e;
