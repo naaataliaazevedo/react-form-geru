@@ -31,6 +31,7 @@ const ContainerInput = styled.div`
     font-weight: bold;
     &:focus {
       border: 0.1rem solid #00d0d7;
+      outline: none;
     }
   }
 `;

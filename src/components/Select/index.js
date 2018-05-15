@@ -27,6 +27,10 @@ const SelectOption = styled.select`
   border: 2px solid #000;
   height: 1.5rem;
   font-weight: bold;
+  &:focus {
+    border: 0.1rem solid #00d0d7;
+    outline: none;
+  }
 `;
 
 export default Select;
