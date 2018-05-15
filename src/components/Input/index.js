@@ -26,6 +26,7 @@ const ContainerInput = styled.div`
     background-color: #fefff0;
     border: 0.1rem solid #000; 
     width: 100%;
+    height: 1.2rem;
     float:left; 
     font-weight: bold;
     &:focus {
