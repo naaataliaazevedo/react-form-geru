@@ -26,6 +26,7 @@ const SelectOption = styled.select`
   background-color: #fefff0;
   border: 2px solid #000;
   height: 1.5rem;
+  font-weight: bold;
 `;
 
 export default Select;

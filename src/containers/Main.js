@@ -165,6 +165,9 @@ const ContainerMain = styled.div`
 const ContainerHome = styled.div`
   width: 60%;
   margin: 0 auto;
+  @media (max-width: 601px) {
+    width: 90%;
+  }
 `;
 
 const ContainerInputs = styled.div`
@@ -174,6 +177,10 @@ const ContainerInputs = styled.div`
     width: calc((100%/3) - 20px);
     float: left;
     padding: 0 10px;
+    @media (max-width: 601px) {
+      width: 100%;
+      padding: 0;
+    }
     &:first-of-type{
       padding-left: 0;
     }
@@ -186,9 +193,13 @@ const ContainerInputs = styled.div`
 const ContainerCheckbox = styled.div`
   width: 64%;
   margin: 0 auto;
+  @media (max-width: 601px) {
+    width: 90%;
+  }
   > div {
     width: 100%;
     float: left;
+    margin: 0.8rem 0;
     .labelFirst {
       width: auto;
       float: left;
