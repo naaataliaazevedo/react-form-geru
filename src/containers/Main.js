@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import swal from 'sweetalert';
 
 import Title from '../components/Title';
 import Header from '../components/Header';
@@ -56,7 +57,6 @@ class Main extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const  { gender, rgNumber, dataNumber, orgaoEmissor } = this.state;
-    console.log('dados', gender, rgNumber, dataNumber, orgaoEmissor);
 
     fetch('http://5af36ad6cca5e20014bba4cd.mockapi.io/api/form/form/', {
       method: 'post',
@@ -64,18 +64,30 @@ class Main extends Component {
     }).then(function (response) {
       return response.json();
     }).then(function (data) {
-      //Success code goes here
-      alert('form submited')
+      swal({
+        text: 'Formulário enviado com sucesso!',
+        content: 'aaa',
+        button: {
+          text: 'Ok',
+          closeModal: true,
+        }
+      })
     }).catch(function (err) {
-      //Failure
-      alert('Error')
+      swal({
+        text: 'Erro ao enviar o formulário. Por favor, tente novamente.',
+        content: 'aaa',
+        button: {
+          text: 'Ok',
+          closeModal: true,
+        }
+      })
     });
   }
 
   render() {
     const { data, gender, rgNumber, dataNumber, orgaoEmissor } = this.state;
     const enabled = gender !== '' && rgNumber !== '' && dataNumber !== '' && orgaoEmissor !== '';
-    console.log('rgNumber', rgNumber.length);
+
     return(
       <section>
         <Header />
@@ -135,7 +147,6 @@ class Main extends Component {
               </div>
             </ContainerCheckbox>
 
-            {/*<button type="submit" disabled={!enabled}>Continuar</button>*/}
             <Button disabled={!enabled}>{'Continuar'}</Button>
           </form>
 
