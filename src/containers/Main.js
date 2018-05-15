@@ -9,6 +9,7 @@ import Input from '../components/Input';
 import Select from '../components/Select';
 import Checkbox from '../components/Checkbox';
 import Button from '../components/Button';
+import HeaderForm from '../components/HeaderForm';
 
 class Main extends Component {
   constructor() {
@@ -39,7 +40,7 @@ class Main extends Component {
   handleChange = (event) => {
     const value = event.target.value;
     const name = event.target.name;
-
+    console.log('value', value.replace('.', ''));
     this.setState({
       [name]: value
     });
@@ -91,6 +92,7 @@ class Main extends Component {
     return(
       <section>
         <Header />
+        <HeaderForm />
         <ContainerMain>
           <ContainerHome>
             <Title>{'Dados Pessoais'}</Title>
@@ -101,10 +103,11 @@ class Main extends Component {
                   <Input
                     label={'Número do rg'}
                     name={'rgNumber'}
-                    value={rgNumber}
-                    mask="11.111.111-1" 
+                    //value={rgNumber}
+                    mask="11.111.111-1"
+                    placeholder={''}
                     onChange={this.handleChange}
-                    className={rgNumber.length < 9 ? 'inative' : 'active'}
+                    className={rgNumber.length < 12 ? 'inative' : 'active'}
                   />
                 </div>
 
@@ -112,10 +115,11 @@ class Main extends Component {
                   <Input
                     label={'Data de emissão'}
                     name={'dataNumber'}
-                    value={dataNumber}
-                    mask="11/11/1111" 
+                    //value={dataNumber}
+                    mask="11/1111"
+                    placeholder={''}
                     onChange={this.handleChange}
-                    className={dataNumber.length < 8 ? 'inative' : 'active'}
+                    className={dataNumber.length < 7 ? 'inative' : 'active'}
                   />
                 </div>
 
