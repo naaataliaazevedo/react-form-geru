@@ -11,7 +11,7 @@ export class Header extends Component {
       <ContainerHeader>
         <div className="main-menu-logo">
           <BoxHeader>
-            <Logo />
+            {/*<Logo />*/}
           </BoxHeader>
           <BoxHeader>
             <Menu />

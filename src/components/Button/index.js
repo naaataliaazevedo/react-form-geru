@@ -18,7 +18,8 @@ const BtnSubmit = styled.button`
   margin: 0 auto;
   background-color: #00e878;
   margin-bottom: 2rem;
-  color: #fff;
+  color: gray;
+  border: transparent;
   &:after {
     content: "";
     display: inline-block;

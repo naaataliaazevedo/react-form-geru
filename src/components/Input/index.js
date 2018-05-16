@@ -5,9 +5,9 @@ import Label from '../Label';
 export class Input extends Component {
   render() {
     const { label, onChange, mask, name, className } = this.props;
-
+    console.log('className', className);
     return (
-      <ContainerInput className={className}>
+      <ContainerInput className={className === true ? 'invalid' : 'aaaaa'}>
         <Label>{label}</Label>
         <MaskedInput
           type="text"
@@ -21,6 +21,18 @@ export class Input extends Component {
 }
 
 const ContainerInput = styled.div`
+  &.invalid {
+    label {
+      color: red;
+    }
+    input {
+      border: 0.1rem solid red;
+      &:focus {
+        border: 0.1rem solid red;
+        outline: none;
+      }
+    }
+  }
   > input {
     background-color: #fefff0;
     border: 0.1rem solid #000; 

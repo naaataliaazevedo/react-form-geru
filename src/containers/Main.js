@@ -21,10 +21,12 @@ class Main extends Component {
       rgNumber: '',
       rgNumberInvalid: false,
       dataNumber: '',
-      dataNumberInvalid: '',
+      dataNumberInvalid: false,
       isFocus: '',
     };
   }
+
+  //(name === 'rgNumber' && value.replace(/\D/g, '').length < 9) || (name === 'dataNumber' && value.replace(/\D/g, '').length < 6) ? 'invalid' : 'valid'
 
   componentDidMount() {
     fetch('/orgao_emissor.json')
@@ -42,6 +44,27 @@ class Main extends Component {
   handleChange = (event) => {
     const value = event.target.value;
     const name = event.target.name;
+    if (name === 'rgNumber' && value.replace(/\D/g, '').length < 9) {
+      console.log('rgNumber value', value.replace(/\D/g, '').length);
+      this.setState({
+        rgNumberInvalid: true,
+      })
+    } else {
+      this.setState({
+        rgNumberInvalid: false,
+      })
+    }
+
+    if (name === 'dataNumber' && value.replace(/\D/g, '').length < 6) {
+      console.log('dataNumber value', value.replace(/\D/g, '').length);
+      this.setState({
+        dataNumberInvalid: true,
+      })
+    } else {
+      this.setState({
+        dataNumberInvalid: false,
+      })
+    }
 
     this.setState({
       [name]: value
@@ -88,9 +111,9 @@ class Main extends Component {
   }
 
   render() {
-    const { data, gender, rgNumber, dataNumber, orgaoEmissor } = this.state;
-    const enabled = gender !== '' && rgNumber !== '' && dataNumber !== '' && orgaoEmissor !== '';
-
+    const { data, gender, rgNumber, dataNumber, orgaoEmissor, rgNumberInvalid, dataNumberInvalid } = this.state;
+    const enabled = gender !== '' && rgNumber !== '' || rgNumberInvalid === true && dataNumber !== '' || dataNumberInvalid === true && orgaoEmissor !== '';
+    console.log('rgInvalid', rgNumberInvalid);
     return(
       <section>
         <Header />
@@ -108,6 +131,7 @@ class Main extends Component {
                     mask="11.111.111-1"
                     onChange={this.handleChange}
                     value={rgNumber}
+                    className={rgNumberInvalid}
                   />
                 </div>
 
@@ -118,6 +142,7 @@ class Main extends Component {
                     mask="11/1111"
                     onChange={this.handleChange}
                     value={dataNumber}
+                    className={dataNumberInvalid}
                   />
                 </div>
 
