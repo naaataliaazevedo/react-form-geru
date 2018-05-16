@@ -12,6 +12,7 @@ export class Logo extends Component {
 const H1 = styled.h1`
   width: 100%;
   float: left;
+  margin: 0;
   img {
     width: 150px;
     float: left;

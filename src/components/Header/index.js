@@ -11,7 +11,7 @@ export class Header extends Component {
       <ContainerHeader>
         <div className="main-menu-logo">
           <BoxHeader>
-            {/*<Logo />*/}
+            <Logo />
           </BoxHeader>
           <BoxHeader>
             <Menu />
@@ -35,21 +35,25 @@ const ContainerHeader = styled.header`
 `;
 
 const BoxHeader = styled.div `
-  width: calc((100%/2) - 240px);
+  //width: calc((100%/2) - 240px);
+  width: calc((100%/2) - 40px);
   float: left;
+  padding: 0 1rem;
   @media (max-width: 601px) { 
     width: 100%;
   }
     &:first-of-type {
-      padding-right: 240px;
+      //padding-right: 240px;
       @media (max-width: 601px) { 
         padding-right: 0;
       }
     }
     &:nth-of-type(2n) {
-      padding-left: 240px;
+      //padding-left: 240px;
+      text-align: right;
       @media (max-width: 601px) { 
         padding-left: 0;
+        text-align: left;
       }
     }
 `;
