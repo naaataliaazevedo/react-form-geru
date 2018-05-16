@@ -37,11 +37,20 @@ const ContainerHeader = styled.header`
 const BoxHeader = styled.div `
   width: calc((100%/2) - 240px);
   float: left;
+  @media (max-width: 601px) { 
+    width: 100%;
+  }
     &:first-of-type {
       padding-right: 240px;
+      @media (max-width: 601px) { 
+        padding-right: 0;
+      }
     }
     &:nth-of-type(2n) {
       padding-left: 240px;
+      @media (max-width: 601px) { 
+        padding-left: 0;
+      }
     }
 `;
 

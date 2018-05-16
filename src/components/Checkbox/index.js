@@ -30,7 +30,7 @@ const ContainerCheckbox = styled.div `
   @media (min-width: 601px) {
     &:nth-of-type(1n) {
       &:after {
-        content: "-";
+        content: "";
         position: absolute;
         top: 13.3rem;
         left: 47.1%;

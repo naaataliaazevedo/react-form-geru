@@ -30,6 +30,9 @@ const ContainerMenu = styled.div `
     position: relative;
     padding-right: 1.2rem;
     transition: all ease-in-out 1s;
+    @media (max-width: 601px) { 
+      float: left;
+    }
     &:hover {
       text-decoration: underline;
       text-decoration-color: #1b7d8e;
