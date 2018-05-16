@@ -33,6 +33,7 @@ const BtnSubmit = styled.button`
   &:disabled {
     background-color: #c1c4b8;
     border: transparent;
+    color: gray;
   }
 `;
 

@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import Label from '../Label';
 export class Input extends Component {
   render() {
-    const { label, onChange, mask, className, name, placeholder } = this.props;
-    
+    const { label, onChange, mask, name, className } = this.props;
+
     return (
       <ContainerInput className={className}>
         <Label>{label}</Label>
@@ -13,8 +13,6 @@ export class Input extends Component {
           type="text"
           mask={mask}
           name={name}
-          //value={value}
-          placeholder={placeholder}
           onChange={onChange}
         />
       </ContainerInput>

@@ -19,7 +19,9 @@ class Main extends Component {
       gender: '',
       orgaoEmissor: '',
       rgNumber: '',
+      rgNumberInvalid: false,
       dataNumber: '',
+      dataNumberInvalid: '',
       isFocus: '',
     };
   }
@@ -40,7 +42,7 @@ class Main extends Component {
   handleChange = (event) => {
     const value = event.target.value;
     const name = event.target.name;
-    console.log('value', value.replace('.', ''));
+
     this.setState({
       [name]: value
     });
@@ -103,11 +105,9 @@ class Main extends Component {
                   <Input
                     label={'Número do rg'}
                     name={'rgNumber'}
-                    //value={rgNumber}
                     mask="11.111.111-1"
-                    placeholder={''}
                     onChange={this.handleChange}
-                    className={rgNumber.length < 12 ? 'inative' : 'active'}
+                    value={rgNumber}
                   />
                 </div>
 
@@ -115,11 +115,9 @@ class Main extends Component {
                   <Input
                     label={'Data de emissão'}
                     name={'dataNumber'}
-                    //value={dataNumber}
                     mask="11/1111"
-                    placeholder={''}
                     onChange={this.handleChange}
-                    className={dataNumber.length < 7 ? 'inative' : 'active'}
+                    value={dataNumber}
                   />
                 </div>
 
