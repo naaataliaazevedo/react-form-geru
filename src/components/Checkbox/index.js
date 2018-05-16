@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export class Checkbox extends Component {
   render() {
     const { value, onClick, checked, className } = this.props;
-    //console.log('checked', checked);
+
     return (
       <ContainerCheckbox>
         <label>

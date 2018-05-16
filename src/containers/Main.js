@@ -26,8 +26,6 @@ class Main extends Component {
     };
   }
 
-  //(name === 'rgNumber' && value.replace(/\D/g, '').length < 9) || (name === 'dataNumber' && value.replace(/\D/g, '').length < 6) ? 'invalid' : 'valid'
-
   componentDidMount() {
     fetch('/orgao_emissor.json')
       .then(response => response.json())
@@ -72,8 +70,8 @@ class Main extends Component {
   }
 
   onClick = (event) => {
-    const el = event.target.value;
     event.preventDefault();
+    const el = event.target.value;
 
     this.setState({
       gender: el,
@@ -112,8 +110,8 @@ class Main extends Component {
 
   render() {
     const { data, gender, rgNumber, dataNumber, orgaoEmissor, rgNumberInvalid, dataNumberInvalid } = this.state;
-    const enabled = gender !== '' && rgNumber !== '' || rgNumberInvalid === true && dataNumber !== '' || dataNumberInvalid === true && orgaoEmissor !== '';
-    console.log('rgInvalid', rgNumberInvalid);
+    const enabled = gender !== '' && (rgNumber !== '' || rgNumberInvalid === true) && (dataNumber !== '' || dataNumberInvalid === true) && orgaoEmissor !== '';
+
     return(
       <section>
         <Header />
