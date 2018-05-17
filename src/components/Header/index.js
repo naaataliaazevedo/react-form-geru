@@ -35,7 +35,6 @@ const ContainerHeader = styled.header`
 `;
 
 const BoxHeader = styled.div `
-  //width: calc((100%/2) - 240px);
   width: calc((100%/2) - 40px);
   float: left;
   padding: 0 1rem;
@@ -43,14 +42,13 @@ const BoxHeader = styled.div `
     width: 100%;
   }
     &:first-of-type {
-      //padding-right: 240px;
       @media (max-width: 601px) { 
         padding-right: 0;
       }
     }
     &:nth-of-type(2n) {
-      //padding-left: 240px;
       text-align: right;
+      padding: 1rem 0;
       @media (max-width: 601px) { 
         padding-left: 0;
         text-align: left;

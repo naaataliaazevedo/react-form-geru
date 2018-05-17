@@ -21,12 +21,12 @@ export class Checkbox extends Component {
   }
 }
 
-const ContainerCheckbox = styled.div `
+const ContainerCheckbox = styled.div`
   margin: 4px;
   border: 2px solid #000;
   //overflow: auto;
   float: left;
-  width: 32.6%;
+  width: 45.6%;
   @media (min-width: 601px) {
     &:nth-of-type(1n) {
       &:after {

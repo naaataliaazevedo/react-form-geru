@@ -6,10 +6,17 @@ export class Button extends Component {
     const { disabled } = this.props;
     console.log('disabled', disabled);
     return (
-      <BtnSubmit type="submit" disabled={disabled}>{this.props.children}</BtnSubmit>
+      <ContainerButtonSubmit>
+        <BtnSubmit type="submit" disabled={disabled}>{this.props.children}</BtnSubmit>
+      </ContainerButtonSubmit>
     );
   }
 }
+
+const ContainerButtonSubmit = styled.div`
+  width: 100%;
+  float:left;
+`;
 
 const BtnSubmit = styled.button`
   display: block;
